@@ -1,0 +1,3 @@
+# Parent directory files - we only want the website files
+../*
+!../mywebsite

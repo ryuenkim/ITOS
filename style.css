@@ -75,10 +75,114 @@ nav ul li a:hover {
   background-color: #f9f9f9;
 }
 
+/* Dropdown Menu Styles */
+nav li.dropdown {
+  position: relative;
+}
+
+nav li.dropdown > a::after {
+  content: ' ▼';
+  font-size: 0.75em;
+}
+
+nav .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  list-style: none;
+  padding: 10px 0;
+  min-width: 250px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  border-top: 3px solid #667eea;
+  display: none;
+  flex-direction: column;
+}
+
+nav .dropdown-menu li {
+  margin: 0;
+}
+
+nav .dropdown-menu li a {
+  display: block;
+  padding: 12px 25px;
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9em;
+  border-bottom: none;
+  transition: all 0.2s ease;
+}
+
+nav .dropdown-menu li a:hover {
+  background-color: #f0f0f0;
+  color: #764ba2;
+  border-bottom: none;
+  padding-left: 35px;
+}
+
+nav li.dropdown:hover .dropdown-menu {
+  display: flex;
+}
+
 main {
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px;
+}
+
+.lab-activity {
+  background: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+  margin-bottom: 50px;
+  display: none;
+  scroll-margin-top: 80px;
+}
+
+.lab-activity:target {
+  display: block;
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.lab-activity h2 {
+  font-size: 2.5em;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.lab-description {
+  font-size: 1.05em;
+  color: #666;
+  line-height: 1.8;
+  text-align: center;
+  margin-bottom: 30px;
+  font-style: italic;
+}
+
+.lab-video {
+  margin-top: 30px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.lab-video iframe {
+  border: none;
 }
 
 .hero {
@@ -102,6 +206,29 @@ main {
   color: #666;
   line-height: 1.8;
   text-align: justify;
+}
+
+.student-info {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 50px 40px;
+  border-radius: 8px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.student-info h2 {
+  font-size: 2.8em;
+  font-weight: 700;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.student-info p {
+  font-size: 1.8em;
+  font-weight: 500;
+  letter-spacing: 0.5px;
 }
 
 .features {
@@ -163,12 +290,42 @@ footer p {
     font-size: 0.9em;
   }
   
+  nav .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    border-top: none;
+    border-left: 3px solid #667eea;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  
+  nav li.dropdown:hover .dropdown-menu {
+    max-height: 400px;
+  }
+  
+  nav .dropdown-menu li a {
+    padding-left: 40px;
+  }
+  
   .hero {
     padding: 20px;
   }
   
   .hero h2 {
     font-size: 1.8em;
+  }
+  
+  .lab-activity {
+    padding: 20px;
+  }
+  
+  .lab-activity h2 {
+    font-size: 1.8em;
+  }
+  
+  .lab-video iframe {
+    height: 300px;
   }
 }
 
